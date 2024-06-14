@@ -150,5 +150,15 @@ try {
         }
     }
 
+    // API
+    // [invent-01] Semua kategori
+    function getAPIKategori(){
+        $kategori = Kategori::all();
+        $data = array("data"=>$kategori);
+
+        return response()->json($data);
+    }
+
+
    
 }
