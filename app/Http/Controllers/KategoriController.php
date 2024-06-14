@@ -217,5 +217,21 @@ try {
         }
     }
 
+    // [invent-05] Update Salah Satu Kategori
+    function updateAPIKategori(Request $request, string $id) {
+        $kategori = Kategori::find($id);
+        if (!$kategori) {
+            return response()->json(['status' => 'Kategori tidak ditemukan'], 404);
+        }
+
+
+        $kategori->deskripsi=$request->deskripsi;
+        $kategori->kategori=$request->kategori;
+        $kategori->save();
+
+
+        return response()->json(['status' => 'Kategori berhasil diubah'], 200);          
+    }
+
 
 }
