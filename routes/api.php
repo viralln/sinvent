@@ -11,4 +11,4 @@ Route::get('/user', function (Request $request) {
 
 Route::get('kategori', [KategoriController::class, 'getAPIKategori']);
 
-
+Route::post('kategori', [KategoriController::class, 'createAPIKategori']);

@@ -159,6 +159,34 @@ try {
         return response()->json($data);
     }
 
+ // [invent-02] Buat Kategori Baru
+    function createAPIKategori(Request $request)
+    {
+        // Validasi data yang diterima dari request
+        $validatedData = $request->validate([
+            'deskripsi' => 'required|string|max:255',
+            'kategori'  => 'required|string|max:3'
+        ]);
+
+        // Buat kategori baru menggunakan data yang sudah divalidasi
+        $kategori = Kategori::create([
+            'deskripsi' => $validatedData['deskripsi'],
+            'kategori' => $validatedData['kategori']
+        ]);
+
+        // Mengembalikan respons JSON dengan data kategori yang baru dibuat
+        return response()->json([
+            'data' => [
+                'id' => $kategori->id,
+                'created_at' => $kategori->created_at,
+                'updated_at' => $kategori->updated_at,
+                'deskripsi' => $kategori->deskripsi,
+                'kategori' => $kategori->kategori
+            ]
+        ], 200); // Status 200 Created
+    }
+
+
 
    
 }
