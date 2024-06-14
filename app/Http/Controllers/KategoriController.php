@@ -187,6 +187,17 @@ try {
     }
 
 
+ // [invent-03] Detail Salah Satu Kategori
+    public function getAPIOneKategori($id)
+    {
+        $kategori = Kategori::find($id);
+        if (!$kategori) {
+            return response()->json(['status' => 'Kategori tidak ditemukan'], 404);
+        }
+
+
+        return response()->json(['data' => $kategori], 200);
+    }
 
    
 }

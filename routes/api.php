@@ -12,3 +12,5 @@ Route::get('/user', function (Request $request) {
 Route::get('kategori', [KategoriController::class, 'getAPIKategori']);
 
 Route::post('kategori', [KategoriController::class, 'createAPIKategori']);
+
+Route::get('kategori/{id}', [KategoriController::class, 'getAPIOneKategori']);
