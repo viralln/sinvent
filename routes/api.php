@@ -14,3 +14,5 @@ Route::get('kategori', [KategoriController::class, 'getAPIKategori']);
 Route::post('kategori', [KategoriController::class, 'createAPIKategori']);
 
 Route::get('kategori/{id}', [KategoriController::class, 'getAPIOneKategori']);
+
+Route::delete('/kategori/{id}', [KategoriController::class, 'deleteAPIKategori']);

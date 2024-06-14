@@ -200,4 +200,22 @@ try {
     }
 
    
+    // [invent-04] Hapus Kategori
+    public function deleteAPIKategori(string $id)
+    {
+        if (DB::table('barang')->where('kategori_id', $id)->exists()){
+            // Menambahkan return response dengan status 500
+            return response()->json(['error' => 'kategori tidak dapat dihapus'], 500);
+        } else {
+            $rseKategori = Kategori::find($id);
+            if ($rseKategori) {
+                $rseKategori->delete();
+                return response()->json(['success' => 'Berhasil dihapus'], 200);
+            } else {
+                return response()->json(['error' => 'Kategori tidak ditemukan'], 404);
+            }
+        }
+    }
+
+
 }
